@@ -24,11 +24,29 @@ if __name__ == '__main__':
 
     count = 1
     while True:
-        answer = input('How many strokes did {} make on hole {}? Enter "done" to quit '.format(p1[0], count)).lower()
+        answer = input('How many strokes did {} make on hole {}? Enter "done" to quit: '.format(p1[0], count)).lower()
         if answer == 'done':
             break
         else:
             p1.append(int(answer))
 
         p2.append(int(input('How many strokes did {} make on hole {}? '.format(p2[0], count))))
-        count += 1 
+        print()
+        count += 1
+
+    p1_score = 0
+    for points in range(1,len(p1)):
+        p1_score += p1[points]
+
+    p2_score = 0
+    for points in range(1,len(p2)):
+        p2_score += p2[points]
+
+    
+    if p1_score < p2_score:
+        print("And the winner is {} with {} strokes!".format(p1[0], p1_score))
+        print("{} made {} strokes.".format(p2[0], p2_score))
+    else:
+        print("And the winner is {} with {} strokes!".format(p2[0], p2_score))
+        print("{} made {} strokes.\n".format(p1[0], p1_score))
+    
